@@ -54,14 +54,14 @@ function Github() {
         </button>
       </form>
 
-      <div
-        style={{ display: Object.keys(user).length === 0 ? "none" : "block" }}
-      >
-        <h2>{user.username}</h2>
-        <img src={user.avatar} alt={user.name} />
-        <p>Name: {user.name}</p>
-        <p>Public repos: {user.publicReposQuantity}</p>
-      </div>
+      {user.username && 
+        <div>
+          <h2>{user.username}</h2>
+          <img src={user.avatar} alt={user.name} />
+          <p>Name: {user.name}</p>
+          <p>Public repos: {user.publicReposQuantity}</p>
+        </div>
+      }
     </>
   );
 }
