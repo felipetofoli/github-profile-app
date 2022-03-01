@@ -1,31 +1,27 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { ButtonComponent, UserProfileListComponent } from "./components";
+import * as ServiceConfig from "./services/ServiceConfig";
 
 function Github() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState({});
 
-  const api = axios.create({
-    baseURL: "https://api.github.com/users/",
-  });
-
   const handleClick = (event) => {
     event.preventDefault();
 
     if (username) {
-      api
-        .get(username)
+      ServiceConfig.get({ url: username })
         .then((response) => {
           const responseUser = {
-            username: response.data.login,
-            name: response.data.name,
-            avatar: response.data.avatar_url,
-            publicReposQuantity: response.data.public_repos,
+            username: response.login,
+            name: response.name,
+            avatar: response.avatar_url,
+            publicReposQuantity: response.public_repos,
           };
           setUser(responseUser);
         })
         .catch((err) => {
+          // todo: improve error handling
           setUser({});
           if (err.response.status === 404) alert("Username not found");
           else alert("error");
