@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ButtonComponent } from "./components";
 
 function Github() {
   const [username, setUsername] = useState("");
@@ -49,19 +50,21 @@ function Github() {
           value={username}
           onChange={handleChange}
         />
-        <button type="submit" onClick={handleClick}>
-          Search
-        </button>
+        <ButtonComponent
+          text="Search"
+          type="submit"
+          handleClick={handleClick}
+        />
       </form>
 
-      {user.username && 
+      {user.username && (
         <div>
           <h2>{user.username}</h2>
           <img src={user.avatar} alt={user.name} />
           <p>Name: {user.name}</p>
           <p>Public repos: {user.publicReposQuantity}</p>
         </div>
-      }
+      )}
     </>
   );
 }
