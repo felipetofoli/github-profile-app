@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { ButtonComponent } from "./components";
+import { ButtonComponent, UserProfileListComponent } from "./components";
 
 function Github() {
   const [username, setUsername] = useState("");
@@ -57,14 +57,7 @@ function Github() {
         />
       </form>
 
-      {user.username && (
-        <div>
-          <h2>{user.username}</h2>
-          <img src={user.avatar} alt={user.name} />
-          <p>Name: {user.name}</p>
-          <p>Public repos: {user.publicReposQuantity}</p>
-        </div>
-      )}
+      <UserProfileListComponent userData={user} />
     </>
   );
 }
