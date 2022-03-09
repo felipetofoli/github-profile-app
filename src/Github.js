@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { ButtonComponent, UserProfileListComponent } from "./components";
+import {
+  ButtonComponent,
+  UserProfileListComponent,
+  InputFieldComponent,
+} from "./components";
 import * as ServiceConfig from "./services/ServiceConfig";
 
 function Github() {
@@ -40,11 +44,11 @@ function Github() {
     <>
       <h1>Github Profile</h1>
       <form>
-        <input
+        <InputFieldComponent
           type="text"
           placeholder="Type the user name"
           value={username}
-          onChange={handleChange}
+          handleChange={handleChange}
         />
         <ButtonComponent
           text="Search"
