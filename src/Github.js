@@ -7,11 +7,10 @@ import {
   InputFieldComponent,
 } from "./components";
 import * as ServiceConfig from "./services/ServiceConfig";
-import { changeUser } from "./store/userAction";
+import { changeUser, resetUser } from "./store/userAction";
 
 function Github() {
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState({});
   const dispatch = useDispatch();
 
   const handleClick = (event) => {
@@ -31,12 +30,12 @@ function Github() {
         })
         .catch((err) => {
           // todo: improve error handling
-          setUser({});
+          dispatch(resetUser());
           if (err.response.status === 404) alert("Username not found");
           else alert("error");
         });
     } else {
-      setUser({});
+      dispatch(resetUser());
       alert("Please fill the username field");
     }
   };
