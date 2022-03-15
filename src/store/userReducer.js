@@ -1,10 +1,12 @@
+import Constants from "./constants";
+
 const INITIAL_STATE = {
     username: "No username",
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case "user/setUsername": // TODO: add constant
+        case Constants.User.SetUsername:
             return {
                 ...state,
                 username: action.payload,

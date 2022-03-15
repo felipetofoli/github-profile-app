@@ -1,6 +1,8 @@
+import Constants from "./constants";
+
 export const changeUsername = (usernameText) => {
     return {
-        type: "user/setUsername", // TODO: add constant
+        type: Constants.User.SetUsername,
         payload: usernameText,
     };
 };
