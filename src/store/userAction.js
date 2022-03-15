@@ -1,8 +1,8 @@
 import Constants from "./constants";
 
-export const changeUsername = (usernameText) => {
+export const changeUser = (user) => {
     return {
-        type: Constants.User.SetUsername,
-        payload: usernameText,
+        type: Constants.User.Set,
+        payload: user,
     };
 };

@@ -7,7 +7,7 @@ import {
   InputFieldComponent,
 } from "./components";
 import * as ServiceConfig from "./services/ServiceConfig";
-import { changeUsername } from "./store/userAction";
+import { changeUser } from "./store/userAction";
 
 function Github() {
   const [username, setUsername] = useState("");
@@ -26,7 +26,8 @@ function Github() {
             avatar: response.avatar_url,
             publicReposQuantity: response.public_repos,
           };
-          setUser(responseUser);
+          //setUser(responseUser);
+          dispatch(changeUser(responseUser));
         })
         .catch((err) => {
           // todo: improve error handling
@@ -54,16 +55,15 @@ function Github() {
           value={username}
           handleChange={handleChange}
         />
-        
-      </form>
 
-      <ButtonComponent
+        <ButtonComponent
           text="Search"
           type="submit"
-          handleClick={(event) => dispatch(changeUsername(username))}
+          handleClick={handleClick}
         />
+      </form>
 
-      <UserProfileListComponent userData={user} />
+      <UserProfileListComponent />
     </>
   );
 }

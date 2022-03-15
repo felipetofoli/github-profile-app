@@ -1,6 +1,6 @@
 const Constants = {
   User: {
-    SetUsername: "user/setUsername",
+    Set: "user/set",
   },
 };
 
