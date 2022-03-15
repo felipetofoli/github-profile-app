@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import {
   ButtonComponent,
   UserProfileListComponent,
   InputFieldComponent,
 } from "./components";
 import * as ServiceConfig from "./services/ServiceConfig";
+import { changeUsername } from "./store/userAction";
 
 function Github() {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState({});
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -50,12 +54,14 @@ function Github() {
           value={username}
           handleChange={handleChange}
         />
-        <ButtonComponent
+        
+      </form>
+
+      <ButtonComponent
           text="Search"
           type="submit"
-          handleClick={handleClick}
+          handleClick={(event) => dispatch(changeUsername(username))}
         />
-      </form>
 
       <UserProfileListComponent userData={user} />
     </>
