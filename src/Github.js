@@ -5,6 +5,7 @@ import {
   ButtonComponent,
   UserProfileListComponent,
   InputFieldComponent,
+  HeaderComponent,
 } from "./components";
 import * as ServiceConfig from "./services/ServiceConfig";
 import { changeUser, resetUser } from "./store/userAction";
@@ -46,6 +47,10 @@ function Github() {
 
   return (
     <>
+      <HeaderComponent />
+
+      <hr />
+
       <h1>Github Profile</h1>
       <form>
         <InputFieldComponent
