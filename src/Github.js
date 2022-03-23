@@ -7,8 +7,7 @@ import {
   InputFieldComponent,
   HeaderComponent,
 } from "./components";
-import * as ServiceConfig from "./services/ServiceConfig";
-import { changeUser, resetUser } from "./store/userAction";
+import { fetchUser, resetUser } from "./store/User/UserCreators";
 
 function Github() {
   const [username, setUsername] = useState("");
@@ -18,23 +17,7 @@ function Github() {
     event.preventDefault();
 
     if (username) {
-      ServiceConfig.get({ url: username })
-        .then((response) => {
-          const responseUser = {
-            username: response.login,
-            name: response.name,
-            avatar: response.avatar_url,
-            publicReposQuantity: response.public_repos,
-          };
-          //setUser(responseUser);
-          dispatch(changeUser(responseUser));
-        })
-        .catch((err) => {
-          // todo: improve error handling
-          dispatch(resetUser());
-          if (err.response.status === 404) alert("Username not found");
-          else alert("error");
-        });
+      dispatch(fetchUser(username));
     } else {
       dispatch(resetUser());
       alert("Please fill the username field");
