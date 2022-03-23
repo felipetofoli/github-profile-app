@@ -9,7 +9,6 @@ export const changeUser = (user) => {
 
 export const resetUser = () => {
   return {
-    type: Constants.User.Reset,
-    payload: {},
+    type: Constants.User.Reset,    
   };
 };

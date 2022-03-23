@@ -10,15 +10,12 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case Constants.User.Set:
+      const { payload } = action;
       return {
-        ...state,
-        username: action.payload.username,
-        name: action.payload.name,
-        avatar: action.payload.avatar,
-        publicReposQuantity: action.payload.publicReposQuantity,
+        ...payload,
       };
     case Constants.User.Reset:
-      return INITIAL_STATE;
+      return state;
     default:
       return state;
   }
