@@ -6,6 +6,7 @@ import {
   UserProfileListComponent,
   InputFieldComponent,
   HeaderComponent,
+  FooterComponent,
 } from "./components";
 import { fetchUser, resetUser } from "./store/User/UserCreators";
 
@@ -51,6 +52,10 @@ function Github() {
       </form>
 
       <UserProfileListComponent />
+
+      <hr />
+
+      <FooterComponent />
     </>
   );
 }
