@@ -3,13 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 import Github from './Github';
 import Store from './store/storeConfig';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <Provider store={Store}>
-      <div className="App">
-        <Github />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <div className="App">
+              <Github />
+            </div>
+          } />
+        </Routes>
+      </BrowserRouter>
     </Provider>
   );
 }
