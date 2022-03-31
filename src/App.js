@@ -3,7 +3,7 @@ import "./App.css";
 import Github from "./Github";
 import Store from "./store/storeConfig";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CreatorComponent } from "./components";
+import { CreatorComponent, RepositoryListComponent } from "./components";
 
 function App() {
   const routes = [
@@ -20,6 +20,14 @@ function App() {
       element: (
         <div className="App">
           <CreatorComponent />
+        </div>
+      ),
+    },
+    {
+      path: "/:username/repositories",
+      element: (
+        <div className="App">
+          <RepositoryListComponent />
         </div>
       ),
     },

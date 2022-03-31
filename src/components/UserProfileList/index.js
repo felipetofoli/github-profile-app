@@ -15,6 +15,9 @@ const UserProfileListComponent = () => {
           <img src={avatar} alt={name} />
           <p>Name: {name}</p>
           <p>Public repos: {publicReposQuantity}</p>
+          <p>
+            <a href={`${username}/repositories`}>See repositories</a>
+          </p>
         </div>
       )}
     </>
