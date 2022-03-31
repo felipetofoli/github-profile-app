@@ -1,10 +1,9 @@
 import { Provider } from "react-redux";
-import logo from "./logo.svg";
 import "./App.css";
 import Github from "./Github";
 import Store from "./store/storeConfig";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { UserProfileListComponent } from "./components";
+import { CreatorComponent } from "./components";
 
 function App() {
   const routes = [
@@ -18,7 +17,11 @@ function App() {
     },
     {
       path: "/profile/:username",
-      element: <UserProfileListComponent />,
+      element: (
+        <div className="App">
+          <CreatorComponent />
+        </div>
+      ),
     },
   ];
 
