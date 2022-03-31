@@ -2,13 +2,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { UserProfileListComponent } from "../../components";
 import { fetchUser } from "../../store/User/UserCreators";
-import { useParams } from "react-router-dom";
 
 const CreatorComponent = () => {
+  const creatorUsername = "felipetofoli";
   const dispatch = useDispatch();
-  const params = useParams();
 
-  dispatch(fetchUser(params.username));
+  dispatch(fetchUser(creatorUsername));
 
   return (
     <>

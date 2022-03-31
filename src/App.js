@@ -16,7 +16,7 @@ function App() {
       ),
     },
     {
-      path: "/profile/:username",
+      path: "/creator",
       element: (
         <div className="App">
           <CreatorComponent />
