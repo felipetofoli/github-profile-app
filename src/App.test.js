@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 
 describe("GithubProfile", () => {
@@ -20,5 +20,20 @@ describe("GithubProfile", () => {
     render(<App />);
     const footerElement = screen.getByText(/FOOTER/);
     expect(footerElement).toBeInTheDocument();
+  });
+
+  it("should render the github profile data after the search", async () => {
+    render(<App />);
+    const username = "felipetofoli";
+
+    fireEvent.change(screen.getByPlaceholderText(/Type the user name/i), {
+      target: { value: username },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Search" }));
+
+    const usernameElement = await screen.findByRole("heading", {
+      name: username,
+    });
+    expect(usernameElement).toBeInTheDocument();
   });
 });
