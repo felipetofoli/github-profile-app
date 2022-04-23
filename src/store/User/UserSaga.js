@@ -27,6 +27,6 @@ function* fetchUser(action) {
     }
 }
 
-export default function* () {
+export default function* userRegister () {
     yield takeLatest(Constants.User.Fetch, fetchUser); // Verify this takeLatest
 }
