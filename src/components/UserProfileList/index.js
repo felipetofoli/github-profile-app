@@ -16,7 +16,7 @@ const UserProfileListComponent = () => {
           <p>Name: {name}</p>
           <p>Public repos: {publicReposQuantity}</p>
           <p>
-            <a href={`${username}/repositories`}>See repositories</a>
+            <a href={`/github-profile-app/${username}/repositories`}>See repositories</a>
           </p>
         </div>
       )}

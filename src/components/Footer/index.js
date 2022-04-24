@@ -5,7 +5,7 @@ const FooterComponent = () => {
   return (
     <>
       <span>FOOTER: </span>
-      <a href="/creator">Creator</a> | {currentYear}
+      <a href="/github-profile-app/creator">Creator</a> | {currentYear}
     </>
   );
 };

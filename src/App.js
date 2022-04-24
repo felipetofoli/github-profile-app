@@ -16,7 +16,15 @@ function App() {
       ),
     },
     {
-      path: "/creator",
+      path: "/github-profile-app/",
+      element: (
+        <div className="App">
+          <Github />
+        </div>
+      ),
+    },
+    {
+      path: "/github-profile-app/creator",
       element: (
         <div className="App">
           <CreatorComponent />
@@ -24,7 +32,7 @@ function App() {
       ),
     },
     {
-      path: "/:username/repositories",
+      path: "/github-profile-app/:username/repositories",
       element: (
         <div className="App">
           <RepositoryListComponent />
