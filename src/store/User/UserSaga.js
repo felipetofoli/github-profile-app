@@ -3,7 +3,11 @@ import Constants from "../constants";
 import * as ServiceConfig from "../../services/ServiceConfig";
 import { changeUser, resetUser } from "./UserCreators";
 
-function* fetchUser(action) {
+export const ERROR_MESSAGE = {
+    GenericError: "Oops... Error.",
+    UserNotFound: "Username not found",
+};
+export function* fetchUser(action) {
     const { payload } = action;
 
     try {
@@ -18,12 +22,12 @@ function* fetchUser(action) {
 
         yield put(changeUser(responseUser));
 
-    } catch (err) {
-        // todo: improve error handling
-        console.log("error: " + err);
+    } catch (err) {                
         yield put(resetUser());
-        if (err.response.status === 404) alert("Username not found");
-        else alert("error");
+        let errorMessage = ERROR_MESSAGE.GenericError;
+        if (err.response.status === 404)
+            errorMessage = ERROR_MESSAGE.UserNotFound;
+        alert(errorMessage);
     }
 }
 
