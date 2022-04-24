@@ -4,8 +4,6 @@
 name: Build and Test React App
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
