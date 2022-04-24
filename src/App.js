@@ -24,6 +24,14 @@ function App() {
       ),
     },
     {
+      path: "/creator",
+      element: (
+        <div className="App">
+          <CreatorComponent />
+        </div>
+      ),
+    },
+    {
       path: "/github-profile-app/creator",
       element: (
         <div className="App">
